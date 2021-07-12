@@ -1,3 +1,4 @@
+import './styles/index.scss'
 const olaRecipe = {
   leatherStrips: 2,
   ironIngot: 1,
