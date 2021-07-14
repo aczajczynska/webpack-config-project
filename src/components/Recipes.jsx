@@ -1,27 +1,24 @@
 import { useState } from 'react';
-const olaRecipe = {
-  leatherStrips: 2,
-  ironIngot: 1,
-  refinedMoonstone: 4,
+const workTaskList = {
+  taskNumber3: 2,
+  commits: 14,
+  newBranch: 3,
 }
 
-const olaLetsRecipe = {
-  ...olaRecipe,
-  leather: 1,
-  refinedMoonstone: 4,
-
+const homeTaskList = {
+  ...workTaskList,
+  workout: 1,
+  dinner: 1,
 }
 
-console.log(olaRecipe)
-console.log(olaLetsRecipe)
 
 const Recipes = () => {
   const [recipe, setRecipe] = useState({})
   return (
     <div>
       <h3>Current Recipe:</h3>
-      <button onClick={() => setRecipe(olaRecipe)}>Ola Recipe</button>
-      <button onClick={() => setRecipe(olaLetsRecipe)}>Ola Lets Recipe</button>
+      <button onClick={() => setRecipe(workTaskList)}>Work Task List</button>
+      <button onClick={() => setRecipe(homeTaskList)}>Home Task List</button>
 
       <ul>
       {Object.keys(recipe).map((material) => (
