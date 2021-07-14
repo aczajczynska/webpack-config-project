@@ -1,9 +1,6 @@
 import '../styles/index.scss'
 import Recipes from './Recipes';
 import Images from './Images';
-import logo from '../images/logo-on-white-bg.png'
-import statistic from '../images/statistics.svg';
-import catGif from '../images/cat-giphy.gif';
 
 const App = () => {
   return (
@@ -13,8 +10,8 @@ const App = () => {
       <section>
         <h1>This is Webpack Config!</h1>
       </section>
-       <Images />
       <Recipes />
+      <Images />
       </main>
     </div>
     )
