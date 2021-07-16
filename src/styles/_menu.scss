@@ -1,0 +1,29 @@
+nav {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    padding: 6px 12px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 26px;
+    color: black;
+
+    &:hover {
+      text-decoration: underline;
+      color: grey;
+    }
+  }
+}
