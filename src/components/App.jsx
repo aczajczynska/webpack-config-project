@@ -1,20 +1,40 @@
-import '../styles/index.scss'
-import Recipes from './Recipes';
-import Images from './Images';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-const App = () => {
-  return (
-    <div className="app-container">
-      <section className="hero"></section>
-      <main>
-      <section>
-        <h1>This is Webpack Config!</h1>
-      </section>
-      <Recipes />
-      <Images />
-      </main>
+const Home = lazy(() => import('../routes/Home'));
+const Images = lazy(() => import('../routes/Images'));
+const Tasks = lazy(() => import('../routes/Tasks'));
+const SplitImport = lazy(() => import('../routes/SpitImport.jsx'));
+
+const App = () => (
+  <Router>
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/images'>Images</Link>
+            </li>
+            <li>
+              <Link to='/tasks'>Tasks</Link>
+            </li>
+            <li>
+              <Link to='/split'>Split Import</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/images' component={Images} />
+          <Route path='/tasks' component={Tasks} />
+          <Route path='/split' component={SplitImport} />
+        </Switch>
+      </Suspense>
     </div>
-    )
-};
+  </Router>
+);
 
 export default App;
