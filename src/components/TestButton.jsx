@@ -1,12 +1,10 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-const TestButton = () => {
-  const [buttonState, setButtonState] = useState("Initial state");
-
+const TestButton = ({ onClick, buttonText }) => {
   return (
     <div>
-    <h1>{buttonState}</h1>
-    <button onClick={() => setButtonState("Button clicked")}>Button: click me!</button>
+      <h1>{buttonText}</h1>
+      <button onClick={onClick}>Add Lazy Content!</button>
     </div>
   );
 };
