@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TestButton from './TestButton';
-import LazyComponent from './LazyComponent';
+// import LazyComponent from './LazyComponent';
+const getLazyComponent = () => import('./LazyComponent');
 
 const LazySection = () => {
   const [loadLazy, setLoadlazy] = useState(false);
@@ -8,6 +9,9 @@ const LazySection = () => {
 
   const showLazyComponent = () => {
     setLoadlazy(true);
+    getLazyComponent().then((comp) => {
+      console.log(comp);
+    });
   };
 
   return (
