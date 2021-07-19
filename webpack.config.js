@@ -68,6 +68,18 @@ module.exports = {
   },
 
   plugins: plugins,
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'async',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+        },
+      },
+    },
+  },
 
   resolve: {
     extensions: ['.js', '.jsx'],
