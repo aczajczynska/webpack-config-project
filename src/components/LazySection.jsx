@@ -1,30 +1,24 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import TestButton from './TestButton';
-// import LazyComponent from './LazyComponent';
-const getLazyComponent = lazy(() => import('./LazyComponent'));
 
 const LazySection = () => {
   const [loadLazy, setLoadlazy] = useState(false);
   const [buttonState, setButtonState] = useState('Initial state');
 
   const showLazyComponent = () => {
-    getLazyComponent().then((comp) => {
-      console.log(comp);
-      setLoadlazy(true);
+    import('../functions/calculate').then((math) => {
+      console.log(math.calculate(16, 26));
     });
   };
 
   return (
-    <Suspense fallback={<div>Loading component, please wait</div>}>
-      <div>
-        <h3>Lazy section</h3>
-        <TestButton
-          onClick={() => showLazyComponent()}
-          buttonState={buttonState}
-        />
-        {loadLazy && <LazyComponent />}
-      </div>
-    </Suspense>
+    <div>
+      <h3>Lazy section:</h3>
+      <TestButton
+        onClick={() => showLazyComponent()}
+        buttonState={buttonState}
+      />
+    </div>
   );
 };
 
