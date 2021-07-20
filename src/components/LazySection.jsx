@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import TestButton from './TestButton';
 const functioToCals = () => import('../functions/calculate');
 
@@ -23,7 +22,7 @@ const LazySection = () => {
       />
       <TestButton
         onClick={() => showLazy()}
-        buttonText={'Calculate: multiplication '}
+        buttonText={'Calculate: multiplication'}
       />
     </div>
   );
