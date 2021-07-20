@@ -10,7 +10,10 @@ let mode = 'development';
 let target = 'web';
 const plugins = [
   new CleanWebpackPlugin(),
-  new MiniCssExtractPlugin(),
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+    chunkFilename: '[id].css',
+  }),
   new HtmlWebpackPlugin({
     template: './src/index.html',
   }),
