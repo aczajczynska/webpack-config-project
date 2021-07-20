@@ -1,5 +1,9 @@
 import TestButton from './TestButton';
-const functioToCals = () => import('../functions/calculate');
+const functionToCals = () =>
+  import(
+    /* webpackChunkName: "calculation-functions" */
+    '../functions/calculate'
+  );
 
 const LazySection = () => {
   const showLazyComponent = () => {
@@ -8,7 +12,7 @@ const LazySection = () => {
     });
   };
   const showLazy = () => {
-    functioToCals().then((math) => {
+    functionToCals().then((math) => {
       console.log(math.calcMultiple(2, 3));
     });
   };

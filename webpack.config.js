@@ -42,6 +42,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
     filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].lazy-chunk.js',
   },
 
   module: {
