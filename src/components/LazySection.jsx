@@ -1,13 +1,15 @@
-import { useState } from 'react';
 import TestButton from './TestButton';
+const functioToCals = () => import('../functions/calculate');
 
 const LazySection = () => {
-  const [loadLazy, setLoadlazy] = useState(false);
-  const [buttonState, setButtonState] = useState('Initial state');
-
   const showLazyComponent = () => {
     import('../functions/calculate').then((math) => {
       console.log(math.calculate(16, 26));
+    });
+  };
+  const showLazy = () => {
+    functioToCals().then((math) => {
+      console.log(math.calcMultiple(2, 3));
     });
   };
 
@@ -16,7 +18,11 @@ const LazySection = () => {
       <h3>Lazy section:</h3>
       <TestButton
         onClick={() => showLazyComponent()}
-        buttonState={buttonState}
+        buttonText={'Calculate: adding'}
+      />
+      <TestButton
+        onClick={() => showLazy()}
+        buttonText={'Calculate: multiplication'}
       />
     </div>
   );

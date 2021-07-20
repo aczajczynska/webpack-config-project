@@ -31,7 +31,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
-    chunkFilename: '[name].bundle.js',
+    filename: '[name].[contenthash].js',
   },
 
   module: {
@@ -69,13 +69,16 @@ module.exports = {
 
   plugins: plugins,
   optimization: {
-    runtimeChunk: 'single',
+    moduleIds: 'deterministic',
+    runtimeChunk: {
+      name: (entrypoint) => `runtime~${entrypoint.name}`,
+    },
     splitChunks: {
-      chunks: 'async',
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
           name: 'vendors',
+          chunks: 'all',
         },
       },
     },
