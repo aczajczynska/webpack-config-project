@@ -1,5 +1,5 @@
 const path = require('path');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,7 +10,7 @@ const BundleAnalyzerPlugin =
 let mode = 'development';
 let target = 'web';
 const plugins = [
-  // new webpack.ProgressPlugin(),
+  new webpack.ProgressPlugin(),
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: '[name].css',
