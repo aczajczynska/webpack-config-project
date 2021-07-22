@@ -1,4 +1,5 @@
 const path = require('path');
+// const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,6 +10,7 @@ const BundleAnalyzerPlugin =
 let mode = 'development';
 let target = 'web';
 const plugins = [
+  // new webpack.ProgressPlugin(),
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: '[name].css',
@@ -16,6 +18,12 @@ const plugins = [
   }),
   new HtmlWebpackPlugin({
     template: './src/index.html',
+    minify: {
+      minifyJS: true,
+      minifyCSS: true,
+      minifyURLs: true,
+      removeEmptyAttributes: true,
+    },
   }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'disabled',
