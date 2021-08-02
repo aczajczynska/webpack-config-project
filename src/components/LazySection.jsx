@@ -1,13 +1,13 @@
-import TestButton from './TestButton';
+import TestButton from "./TestButton";
 const functionToCals = () =>
   import(
     /* webpackChunkName: "calculation-functions" */
-    '../functions/calculate'
+    "../functions/calculate"
   );
 
 const LazySection = () => {
   const showLazyComponent = () => {
-    import('../functions/calculate').then((math) => {
+    import("../functions/calculate").then((math) => {
       console.log(math.calculate(16, 26));
     });
   };
@@ -22,11 +22,11 @@ const LazySection = () => {
       <h3>Lazy section:</h3>
       <TestButton
         onClick={() => showLazyComponent()}
-        buttonText={'Calculate: adding'}
+        buttonText={"Calculate: adding"}
       />
       <TestButton
         onClick={() => showLazy()}
-        buttonText={'Calculate: multiplication'}
+        buttonText={"Calculate: multiplication"}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 const workTaskList = {
   taskNumber3: 2,
   commits: 14,
@@ -14,7 +14,7 @@ const homeTaskList = {
 const getLodash = () =>
   import(
     /* webpackChunkName: "get-lodash" */
-    'lodash-es'
+    "lodash-es"
   );
 
 const Recipes = () => {
